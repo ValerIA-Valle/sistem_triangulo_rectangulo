@@ -7,7 +7,6 @@ class TrianguloModel
 
     public function __construct()
     {
-        // Se conecta usando tu clase estática Database
         $this->pdo = Database::conectar();
     }
 

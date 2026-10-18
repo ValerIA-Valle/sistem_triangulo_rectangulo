@@ -42,14 +42,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main>
         <div class="caja">
             <form action="" method="post" id="frmLogin">
-                <!-- Tu logo ahora cuenta con un leve resplandor dorado configurado en CSS -->
                 <img src="../imagenes/triangulo-rectangulo.png" alt="Logo Instituciones">
                 <input type="email" name="correo" id="correo" placeholder="Correo electrónico" required>
                 <input type="password" name="clave" id="clave" placeholder="Contraseña" required>
                 <button type="submit" id="btnIngresar">Ingresar</button>
             </form>
             
-            <!-- CORRECCIÓN: Se evalúa si $mensaje no está vacío para lanzar el alert -->
             <?php if (!empty($mensaje)) : ?>
                 <script>
                     alert("<?php echo htmlspecialchars($mensaje, ENT_QUOTES, 'UTF-8'); ?>");

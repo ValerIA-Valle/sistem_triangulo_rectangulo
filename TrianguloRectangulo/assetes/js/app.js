@@ -1,5 +1,5 @@
 function calcularTriangulo() {
-    // 1. Obtenemos los valores de los inputs de la vista
+    // 1. aca obtenemos los valores de los inputs de la vista
     const baseInput = document.getElementById('txtBase');
     const alturaInput = document.getElementById('txtAltura');
     const areaInput = document.getElementById('txtA');

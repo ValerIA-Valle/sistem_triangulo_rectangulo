@@ -1,9 +1,9 @@
 <?php
 class Database {
     private static $host = 'localhost';
-    private static $db_name = 'triangulo_db'; // Asegúrate de que tu base de datos en phpMyAdmin se llame así o cámbialo aquí
-    private static $username = 'root';        // Usuario por defecto de XAMPP
-    private static $password = '';            // Contraseña por defecto de XAMPP (vacía)
+    private static $db_name = 'triangulo_db';
+    private static $username = 'root';       
+    private static $password = '';           
     private static $conn = null;
 
     public static function conectar() {
@@ -14,7 +14,6 @@ class Database {
                     self::$username,
                     self::$password
                 );
-                // Configurar para que lance excepciones en caso de errores
                 self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 die("Error de conexión a la base de datos: " . $e->getMessage());

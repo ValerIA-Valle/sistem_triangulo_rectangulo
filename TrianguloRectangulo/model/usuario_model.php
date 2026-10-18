@@ -22,7 +22,6 @@ class UsuarioModel
             return null;
         }
 
-        // Para este proyecto se permite clave simple. También acepta clave encriptada con password_hash().
         if ($clave === $usuario['clave'] || password_verify($clave, $usuario['clave'])) {
             return $usuario;
         }

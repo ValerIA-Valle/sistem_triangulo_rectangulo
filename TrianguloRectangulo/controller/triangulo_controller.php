@@ -1,5 +1,4 @@
 <?php
-// Se incluye el modelo usando minúsculas y guion bajo según tu arquitectura
 require_once __DIR__ . '/../model/triangulo_model.php';
 
 class TrianguloController
@@ -8,7 +7,6 @@ class TrianguloController
 
     public function __construct()
     {
-        // Se instancia la clase del modelo del triángulo
         $this->modelo = new TrianguloModel();
     }
 
@@ -36,11 +34,10 @@ class TrianguloController
         $id = (int) ($_POST['id_triangulo'] ?? 0);
         $detalle = trim($_POST['txtDetalle'] ?? '');
         
-        // Se capturan los dos parámetros requeridos para el triángulo rectángulo
         $base = trim($_POST['txtBase'] ?? '');
         $altura = trim($_POST['txtAltura'] ?? '');
 
-        // Validación estricta: ambos deben ser numéricos y mayores a cero
+        // esto es la validacion ambos deben ser numéricos y mayores a cero
         if ($base === '' || !is_numeric($base) || (float) $base <= 0) {
             return 'Ingrese una base válida mayor a cero';
         }
@@ -48,7 +45,6 @@ class TrianguloController
             return 'Ingrese una altura válida mayor a cero';
         }
 
-        // Si pasa las validaciones, procedemos con el modelo
         if ($id > 0) {
             $this->modelo->actualizar($id, $detalle, (float) $base, (float) $altura);
             header('Location: home.php?mensaje=actualizado');

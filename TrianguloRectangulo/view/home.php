@@ -22,7 +22,7 @@ if (isset($_GET['editar'])) {
 
 $registros = $trianguloController->listar($buscar);
 
-// Variables adaptadas al Triángulo Rectángulo
+// Variables del Triángulo Rectángulo
 $idActual = $registroEditar['id_triangulo'] ?? '';
 $baseActual = $registroEditar['base'] ?? '';
 $alturaActual = $registroEditar['altura'] ?? '';
