@@ -1,29 +1,89 @@
 <?php
-class TrianguloController 
+// Se incluye el modelo usando minúsculas y guion bajo según tu arquitectura
+require_once __DIR__ . '/../model/triangulo_model.php';
+
+class TrianguloController
 {
-    /**
-     * Procesa las acciones del formulario (Guardar, Actualizar, Eliminar)
-     */
-    public function procesarFormulario(): string 
+    private TrianguloModel $modelo;
+
+    public function __construct()
     {
-        // Temporalmente devolvemos una cadena vacía para que no interfiera
+        // Se instancia la clase del modelo del triángulo
+        $this->modelo = new TrianguloModel();
+    }
+
+    public function procesarFormulario(): string
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            return '';
+        }
+
+        $accion = $_POST['accion'] ?? '';
+
+        if ($accion === 'guardar') {
+            return $this->guardarOActualizar();
+        }
+
+        if ($accion === 'eliminar') {
+            return $this->eliminar();
+        }
+
         return '';
     }
 
-    /**
-     * Obtiene un registro específico para pasarlo al formulario de edición
-     */
-    public function obtenerParaEditar(int $id) 
+    private function guardarOActualizar(): string
     {
-        return null;
+        $id = (int) ($_POST['id_triangulo'] ?? 0);
+        $detalle = trim($_POST['txtDetalle'] ?? '');
+        
+        // Se capturan los dos parámetros requeridos para el triángulo rectángulo
+        $base = trim($_POST['txtBase'] ?? '');
+        $altura = trim($_POST['txtAltura'] ?? '');
+
+        // Validación estricta: ambos deben ser numéricos y mayores a cero
+        if ($base === '' || !is_numeric($base) || (float) $base <= 0) {
+            return 'Ingrese una base válida mayor a cero';
+        }
+        if ($altura === '' || !is_numeric($altura) || (float) $altura <= 0) {
+            return 'Ingrese una altura válida mayor a cero';
+        }
+
+        // Si pasa las validaciones, procedemos con el modelo
+        if ($id > 0) {
+            $this->modelo->actualizar($id, $detalle, (float) $base, (float) $altura);
+            header('Location: home.php?mensaje=actualizado');
+            exit;
+        }
+
+        $this->modelo->guardar($detalle, (float) $base, (float) $altura);
+        header('Location: home.php?mensaje=guardado');
+        exit;
     }
 
-    /**
-     * Lista todos los registros del historial o los filtra por el buscador
-     */
-    public function listar(string $buscar): array 
+    private function eliminar(): string
     {
-        // Devolvemos un arreglo vacío temporal para que la tabla no rompa la página
-        return [];
+        $id = (int) ($_POST['id_triangulo'] ?? 0);
+
+        if ($id <= 0) {
+            return 'No se pudo eliminar el registro';
+        }
+
+        $this->modelo->eliminar($id);
+        header('Location: home.php?mensaje=eliminado');
+        exit;
+    }
+
+    public function listar(string $buscar = ''): array
+    {
+        return $this->modelo->listar($buscar);
+    }
+
+    public function obtenerParaEditar(int $id): ?array
+    {
+        if ($id <= 0) {
+            return null;
+        }
+
+        return $this->modelo->obtenerPorId($id);
     }
 }
