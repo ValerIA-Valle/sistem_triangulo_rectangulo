@@ -1,0 +1,431 @@
+/*==================================================*/
+/*   Home - Estilo Minimalista Natural (Pastel)     */
+/*==================================================*/
+:root {
+    --fondo: #fcfbfa;           /* Crema suave */
+    --fondo-tarjeta: #ffffff;
+    --primario: #a3c9a8;        /* Verde claro pastel */
+    --primario-oscuro: #84b08a; /* Verde oliva suave */
+    --secundario: #ffd3b6;      /* Rosa pastel */
+    --acento: #d4af37;          /* Dorado sutil */
+    --texto: #2d3732;           /* Verde oscuro para legibilidad */
+    --texto-suave: #7a8a80;
+    --borde: #edf3ef;
+    --blanco: #ffffff;
+    --sombra: 0 15px 35px rgba(45, 55, 50, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+}
+
+/*--- HEADER & NAVEGACIÓN ---*/
+.headeerHome {
+    background-color: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+}
+
+.lineaSup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 40px;
+    filter: drop-shadow(0 2px 5px rgba(163, 201, 168, 0.2));
+}
+
+.logo h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--primario-oscuro);
+}
+
+.logo-links a {
+    text-decoration: none;
+    color: var(--texto-suave);
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.logo-links a:hover {
+    color: var(--acento);
+}
+
+/* Buscador Superior */
+.buscarHeader .form1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.buscarHeader input {
+    height: 38px;
+    padding: 0 15px;
+    border: 1px solid var(--borde);
+    background-color: #f7faf8;
+    border-radius: 8px;
+    outline: none;
+    color: var(--texto);
+    transition: all 0.3s;
+}
+
+.buscarHeader input:focus {
+    border-color: var(--primario);
+    background-color: var(--blanco);
+}
+
+.buscarHeader button, .btn-limpiar {
+    height: 38px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.buscarHeader button {
+    background-color: var(--primario);
+    color: var(--blanco);
+}
+
+.buscarHeader button:hover {
+    background-color: var(--primario-oscuro);
+}
+
+.btn-limpiar {
+    background-color: #f0f0f0;
+    color: #666;
+}
+
+.lineaInf {
+    background-color: #f8fbf9;
+    padding: 10px 5%;
+    border-top: 1px solid var(--borde);
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--texto-suave);
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.menu a:hover, .menu a.activo {
+    color: var(--texto);
+    background-color: rgba(163, 201, 168, 0.15);
+}
+
+.menu a.logout {
+    margin-left: auto;
+    color: #c97a7a;
+}
+
+.menu a.logout:hover {
+    background-color: #fff0f0;
+}
+
+/*--- CONTENEDOR PRINCIPAL ---*/
+.contenedor-principal {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.titulo h1 {
+    font-size: 26px;
+    color: var(--texto);
+    margin-bottom: 5px;
+}
+
+.usuario-logueado {
+    color: var(--texto-suave);
+    font-size: 14px;
+}
+
+.usuario-logueado span {
+    color: var(--primario-oscuro);
+    font-weight: 600;
+}
+
+.mensaje-alerta {
+    padding: 12px 20px;
+    background-color: rgba(255, 211, 182, 0.3);
+    border-left: 4px solid var(--secundario);
+    color: #b36b3f;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/*--- FORMULARIO ---*/
+.form2 {
+    background: var(--blanco);
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid var(--borde);
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputs label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--texto-suave);
+}
+
+.inputHome {
+    height: 46px;
+    padding: 0 15px;
+    border: 1px solid var(--borde);
+    background-color: #fafdfb;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.inputHome:focus {
+    border-color: var(--primario);
+    background-color: var(--blanco);
+    box-shadow: 0 0 0 3px rgba(163, 201, 168, 0.1);
+}
+
+.inputHome.readonly {
+    background-color: #f5f8f6;
+    border-color: var(--borde);
+    color: var(--primario-oscuro);
+    font-weight: 600;
+}
+
+/* Botonera */
+.botones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-calcular {
+    height: 46px;
+    background-color: transparent;
+    color: var(--primario-oscuro);
+    border: 2px dashed var(--primario);
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-calcular:hover {
+    background-color: rgba(163, 201, 168, 0.1);
+    border-color: var(--primario-oscuro);
+}
+
+.acciones-finales {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.btn-cancelar {
+    height: 46px;
+    padding: 0 25px;
+    background-color: #f5f5f5;
+    color: #777;
+    text-decoration: none;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-cancelar:hover {
+    background-color: #e8e8e8;
+}
+
+.btn-guardar {
+    height: 46px;
+    padding: 0 30px;
+    background: linear-gradient(135deg, var(--primario), var(--primario-oscuro));
+    color: var(--blanco);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px solid var(--acento);
+    transition: all 0.3s;
+}
+
+.btn-guardar:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(132, 176, 138, 0.2);
+}
+
+/*--- TABLA HISTORIAL ---*/
+.tabla-seccion h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--texto);
+}
+
+.tabla-responsiva {
+    overflow-x: auto;
+    background: var(--blanco);
+    border-radius: 16px;
+    border: 1px solid var(--borde);
+    box-shadow: var(--sombra);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 15px;
+}
+
+th {
+    background-color: #f8fbf9;
+    padding: 16px;
+    font-weight: 600;
+    color: var(--texto-suave);
+    border-bottom: 1px solid var(--borde);
+}
+
+td {
+    padding: 16px;
+    border-bottom: 1px solid var(--borde);
+    color: var(--texto);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.col-detalle {
+    color: #66756c;
+    font-style: italic;
+}
+
+.destaque-calculo {
+    font-weight: 600;
+    color: var(--primario-oscuro);
+}
+
+.tabla-vacia {
+    text-align: center;
+    color: var(--texto-suave);
+    padding: 40px !important;
+}
+
+/* Botones Tabla */
+.acciones {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-tabla {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+
+.btn-tabla.editar {
+    background-color: rgba(255, 211, 182, 0.25);
+    color: #c4733b;
+}
+
+.btn-tabla.editar:hover {
+    background-color: rgba(255, 211, 182, 0.45);
+}
+
+.btn-tabla.eliminar {
+    background-color: #fff0f0;
+    color: #c97a7a;
+}
+
+.btn-tabla.eliminar:hover {
+    background-color: #ffe1e1;
+}
+
+/* REPOSITORIO RESPONSIVO */
+@media (max-width: 768px) {
+    .grupo-inputs {
+        grid-template-columns: 1fr;
+    }
+    .lineaSup {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .buscarHeader {
+        width: 100%;
+    }
+    .buscarHeader .form1 {
+        width: 100%;
+    }
+    .buscarHeader input {
+        flex-grow: 1;
+    }
+}
