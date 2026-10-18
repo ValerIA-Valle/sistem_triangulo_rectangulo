@@ -1,14 +1,14 @@
 <?php
 require_once __DIR__ . '/../model/usuario_model.php';
 
-class auth_controller
+class AuthController
 {
     /**
      * Gestiona el inicio de sesión único del sistema matemático
      */
     public function login(string $correo, string $clave): bool
     {
-        $usuarioModel = new usuario_model();
+        $usuarioModel = new UsuarioModel();
         $usuario = $usuarioModel->login($correo, $clave);
 
         if ($usuario) {
