@@ -1,0 +1,137 @@
+/*==================================================*/
+/*   Login - Minimalista (Verde, Dorado, Rosa)      */
+/*==================================================*/
+:root{
+    --fondo: #fcfbfa;           /* Blanco roto/crema suave */
+    --fondo-2: #f4f9f5;         /* Verde claro sumamente sutil para inputs */
+    --tarjeta: #ffffff;
+    --primario: #a3c9a8;        /* Verde claro pastel */
+    --primario-oscuro: #84b08a; /* Verde oliva/pastel más profundo */
+    --secundario: #ffd3b6;      /* Rosa pastel suave */
+    --acento: #d4af37;          /* Dorado elegante */
+    --texto: #2d3732;           /* Verde oscuro casi negro para lectura limpia */
+    --texto-suave: #8a9a91;     /* Gris verdoso sutil para placeholders */
+    --borde: #eef3f0;
+    --blanco: #ffffff;
+    --sombra: 0 20px 40px rgba(45, 55, 50, 0.06); /* Sombra muy suave y minimalista */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--texto);
+    /* El fondo simula un ambiente natural abstracto usando rosa pastel y verde claro */
+    background:
+        radial-gradient(circle at top left, rgba(255, 211, 182, 0.4), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(163, 201, 168, 0.3), transparent 45%),
+        var(--fondo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caja{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 25px;
+}
+
+.caja form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: min(400px, 100%);
+    padding: 45px 35px;
+    border: 1px solid var(--borde);
+    border-radius: 24px; /* Bordes redondeados modernos */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px); /* Efecto esmerilado elegante */
+    box-shadow: var(--sombra);
+}
+
+form img{
+    width: 120px;
+    margin-bottom: 35px;
+    /* Un toque dorado sutil detrás del logo */
+    filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.15)); 
+}
+
+form input{
+    width: 100%;
+    height: 52px;
+    font-size: 16px;
+    border: 1px solid transparent;
+    background-color: var(--fondo-2);
+    color: var(--texto);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    padding-left: 18px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+form input::placeholder{
+    color: var(--texto-suave);
+}
+
+/* Enfoque elegante utilizando el verde claro y destellos dorados */
+form input:focus{
+    border-color: var(--primario);
+    background-color: var(--blanco);
+    box-shadow: 0 0 0 4px rgba(163, 201, 168, 0.15);
+}
+
+form button{
+    width: 100%;
+    height: 52px;
+    /* Gradiente del verde claro a su variante más oscura */
+    background: linear-gradient(135deg, var(--primario), var(--primario-oscuro));
+    color: var(--blanco);
+    border: 0;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    /* Borde inferior dorado minimalista para el botón principal */
+    border-bottom: 2px solid var(--acento); 
+}
+
+form button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(132, 176, 138, 0.3);
+    opacity: 0.95;
+}
+
+form button:active{
+    transform: translateY(0);
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 480px){
+    .caja form{
+        padding: 35px 20px;
+    }
+
+    form img{
+        width: 100px;
+        margin-bottom: 25px;
+    }
+
+    form input,
+    form button{
+        height: 48px;
+        font-size: 15px;
+    }
+}
