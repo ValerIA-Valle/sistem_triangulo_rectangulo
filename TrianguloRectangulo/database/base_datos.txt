@@ -1,0 +1,29 @@
+-- ======================================================
+-- ESTRUCTURA DE LA BASE DE DATOS: triangulo_db
+-- ======================================================
+
+-- 1. Crear la tabla para el inicio de sesión
+CREATE TABLE IF NOT EXISTS usuario (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(100) NOT NULL UNIQUE,
+    clave VARCHAR(255) NOT NULL,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Insertar usuario administrador por defecto (Clave: 123)
+INSERT INTO usuario (nombre, correo, clave) 
+VALUES ('Administrador', 'admin@cuadrado', '123')
+ON DUPLICATE KEY UPDATE id_usuario=id_usuario;
+
+
+-- 2. Crear la tabla para el historial de cálculos del triángulo
+CREATE TABLE IF NOT EXISTS triangulo (
+    id_triangulo INT AUTO_INCREMENT PRIMARY KEY,
+    base DECIMAL(10,2) NOT NULL,
+    altura DECIMAL(10,2) NOT NULL,
+    detalle VARCHAR(255) NULL,
+    area DECIMAL(10,2) NOT NULL,
+    perimetro DECIMAL(10,2) NOT NULL,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
